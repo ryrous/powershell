@@ -1,0 +1,1 @@
+Get-ChildItem | Export-Clixml C:\XMLfile.xml
