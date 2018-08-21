@@ -1,0 +1,1 @@
+Export-DHCPServer -file C:\DHCPConfig.xml -Leases
