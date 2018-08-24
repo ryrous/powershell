@@ -1,0 +1,1 @@
+Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart
