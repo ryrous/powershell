@@ -1,16 +1,15 @@
 ﻿###### Run all from an Elevated PowerShell session ##########
-##### Enable PowerShell Remoting #####
+##### Enable Remote Management #####
+WinRM quickconfig
 Enable-PSRemoting -Force
-Start-Sleep 3
+
 ##### Workgroup Setup #####
-Set-Item wsman:\localhost\client\trustedhosts * -force
-Start-Sleep 3
+Set-Item wsman:\localhost\client\trustedhosts * -Force
 Restart-Service WinRM
-Start-Sleep 3
+
 ##### Enable CredSSP #####
-Enable-WSManCredSSP –Role server -force
-Start-Sleep 3
+Enable-WSManCredSSP –Role Server -Force
+
 ##### Set Execution Policy #####
-Set-ExecutionPolicy -scope LocalMachine Unrestricted -force
-Start-Sleep 3
-Set-ExecutionPolicy -scope CurrentUser Unrestricted -force
+Set-ExecutionPolicy -scope LocalMachine Unrestricted -Force
+Set-ExecutionPolicy -scope CurrentUser Unrestricted -Force
