@@ -1,3 +1,4 @@
+### Export Users with Expired Passwords to CSV ###
 Search-AdAccount -UsersOnly `
                  -PasswordExpired | Select-Object -Property SAMaccountname, `
                                                             Enabled, `

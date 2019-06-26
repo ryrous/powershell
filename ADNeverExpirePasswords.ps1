@@ -1,4 +1,4 @@
-#Export to CSV for Reference
+### Export Users whose Password Never Expires to CSV ###
 Search-ADAccount -PasswordNeverExpires `
                  -UsersOnly | Select-Object -Property SAMaccountname, `
                                                       Enabled, `
@@ -7,5 +7,5 @@ Search-ADAccount -PasswordNeverExpires `
                                                       LastLogonDate `
                             | Export-Csv -Path C:\ExportDir\PWNeverExpires.csv -NoTypeInformation
 
-#Disable 'Password Never Expires' option
+### Disable 'Password Never Expires' option ###
 Import-CSV C:\ExportDir\PWNeverExpires.csv | ForEach-Object {Set-ADUser $_ -PasswordNeverExpires $false}

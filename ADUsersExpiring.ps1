@@ -1,3 +1,4 @@
+### Export Users with Expiring Status to CSV ###
 Search-ADAccount -UsersOnly `
                  -AccountExpiring | Select-Object -Property SAMaccountname, `
                                                                        Enabled, `

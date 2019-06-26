@@ -1,1 +1,4 @@
-Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart
+### Add a Windows Feature ###
+Install-WindowsFeature -Name "NameOfFeature" `
+                       -ComputerName "TargetComputer" `
+                       -Restart
