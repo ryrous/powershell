@@ -6,8 +6,7 @@ Search-ADAccount -UsersOnly `
                                                       PasswordNeverExpires, `
                                                       LastLogonDate `
                             | Export-Csv C:\ExportDir\LockedOutUsers.csv -NoTypeInformation
-### Get SAMaccountname ###
-$LockedOutUsers = (Import-Csv -Path C:\ExportDir\LockedOutUsers.csv).SAMaccountname
 
 ### Unlock User Accounts ###
-Unlock-ADAccount -Identity $LockedOutUsers
+Search-ADAccount -UsersOnly `
+                 -LockedOut | Unlock-ADAccount
