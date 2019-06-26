@@ -1,1 +1,1 @@
-Export-DHCPServer -file C:\DHCPConfig.xml -Leases
+Export-DHCPServer -File "C:\DHCPConfig.xml" -Leases
