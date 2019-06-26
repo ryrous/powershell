@@ -1,1 +1,3 @@
-Test-ComputerSecureChannel -Server "domain.com" -Repair -Verbose 
+Test-ComputerSecureChannel -Server "domain.com" `
+                           -Repair `
+                           -Verbose

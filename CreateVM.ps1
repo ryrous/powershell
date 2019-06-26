@@ -1,1 +1,9 @@
-New-VM -MemoryStartupBytes 4096MB -Name NameofVM -Path "C:\Directory" -VHDPath "C:\Directory\NameofVHD.vhdx"
+New-VM -MemoryStartupBytes "4GB" `
+       -Name "NameofVM" `
+       -ComputerName "NameOfHyperVhost"
+       -Path "C:\Directory\VMfiles" `
+       -NewVHDPath "C:\Directory\NameofVHD.vhdx" `
+       -BootDevice "VHD" `
+       -Generation "2" `
+       -SwitchName "NameOfVswitch" `
+       -Confirm
