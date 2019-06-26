@@ -1,3 +1,4 @@
+### Create New VM ###
 New-VM -MemoryStartupBytes "4GB" `
        -Name "NameofVM" `
        -ComputerName "NameOfHyperVhost"

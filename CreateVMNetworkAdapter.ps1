@@ -1,2 +1,6 @@
-Get-VM -Name "NameofVM" | Get-VMNetworkAdapter `
-                        | Connect-VMNetworkAdapter -Switchname 'Private Network'
+### Create New Network Adapter on VM ###
+Add-VMNetworkAdapter -VM "NameOfVM" `
+                     -SwitchName "NameOfVswitch" `
+                     -ComputerName "HyperVhostName" `
+                     -Name "NameOfNewAdapter" `
+                     -IsLegacy $false
