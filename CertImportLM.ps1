@@ -1,0 +1,1 @@
+Import-Certificate -FilePath "C:\NameOfCert.crt" -CertStoreLocation Cert:\LocalMachine\Root
