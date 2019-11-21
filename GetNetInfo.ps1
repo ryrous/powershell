@@ -1,3 +1,4 @@
-Get-NetAdapter | Select-Object $env:COMPUTERNAME, MacAddress, NetworkAddresses, InterfaceAlias, LinkSpeed, AdminStatus | Export-Csv -Path C:\ExportDir\NETinfo.csv -NoTypeInformation
-Get-NetIPAddress | Select-Object IPv4Address | Export-Csv -Path C:\ExportDir\IPinfo.csv -NoTypeInformation
-Get-ADComputer -Properties IPv4Address | Format-Table Name, IPv4Address -AutoSize
+# Get Net Info
+Get-NetAdapter | Where-Object Name -eq Ethernet | Select-Object $env:COMPUTERNAME, MacAddress, InterfaceAlias, LinkSpeed, AdminStatus | Export-Csv -Path C:\ExportDir\NETinfo.csv -NoTypeInformation
+# Get IP Info
+Get-NetIPAddress | Where-Object InterfaceAlias -eq Ethernet | Select-Object IPv4Address | Export-Csv -Path C:\ExportDir\IPinfo.csv -NoTypeInformation
