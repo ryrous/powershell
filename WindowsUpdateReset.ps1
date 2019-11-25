@@ -1,6 +1,8 @@
 ### Stop the BITS service and the Windows Update service ###
-net stop bits
-net stop wuauserv
+net stop bits /y
+net stop appidsvc /y
+net stop cryptsvc /y
+net stop wuauserv /y
 ### Delete the qmgr*.dat files ###
 Remove-Item "%ALLUSERSPROFILE%\Application Data\Microsoft\Network\Downloader\qmgr*.dat"
 ### Rename the following folders to *.BAK ###
@@ -51,5 +53,7 @@ regsvr32.exe /s wuwebv.dll
 ### Reset Winsock ###
 netsh winsock reset
 ### Restart the BITS service and the Windows Update service ###
-net start bits
-net start wuauserv
+net start bits /y
+net start cryptsvc /y
+net start appidsvc /y
+net start wuauserv /y
