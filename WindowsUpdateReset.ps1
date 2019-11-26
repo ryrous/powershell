@@ -4,26 +4,7 @@ Reset-WindowsUpdate.ps1 - Resets the Windows Update components
  
 .DESCRIPTION  
 This script will reset all of the Windows Updates components to DEFAULT SETTINGS. 
- 
-.OUTPUTS 
-Results are printed to the console. Future releases will support outputting to a log file.  
- 
-.NOTES 
-Written by: Ryan Nemeth 
- 
-Find me on: 
- 
-* My Blog:    http://www.geekyryan.com 
-* Twitter:    https://twitter.com/geeky_ryan 
-* LinkedIn:    https://www.linkedin.com/in/ryan-nemeth-b0b1504b/ 
-* Github:    https://github.com/rnemeth90 
-* TechNet:  https://social.technet.microsoft.com/profile/ryan%20nemeth/ 
- 
-Change Log 
-V1.00, 05/21/2015 - Initial version 
-V1.10, 09/22/2016 - Fixed bug with call to sc.exe 
-V1.20, 11/13/2017 - Fixed environment variables 
-#> 
+#>
  
  
 $arch = Get-WMIObject -Class Win32_Processor -ComputerName LocalHost | Select-Object AddressWidth 
