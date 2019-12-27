@@ -1,0 +1,35 @@
+### CurrentUser CertStoreLocation ###
+Name : TrustedPublisher
+Name : ClientAuthIssuer
+Name : Root
+Name : UserDS
+Name : CA
+Name : ACRS
+Name : AuthRoot
+Name : TrustedPeople
+Name : My
+Name : Local NonRemovable Certificates
+Name : SmartCardRoot
+Name : Trust
+Name : Disallowed
+
+### LocalMachine CertStoreLocation ###
+Name : TestSignRoot
+Name : ClientAuthIssuer
+Name : Remote Desktop
+Name : Root
+Name : TrustedDevices
+Name : CA
+Name : TrustedAppRoot
+Name : eSIM Certification Authorities
+Name : AuthRoot
+Name : Windows Live ID Token Issuer
+Name : TrustedPublisher
+Name : FlightRoot
+Name : TrustedPeople
+Name : My
+Name : SmartCardRoot
+Name : Trust
+Name : Disallowed
+Name : Homegroup Machine Certificates
+Name : REQUEST
