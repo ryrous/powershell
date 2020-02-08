@@ -3,8 +3,8 @@
 WinRM quickconfig
 Enable-PSRemoting -Force
 
-##### Workgroup Setup #####
-Set-Item wsman:\localhost\client\trustedhosts * -Force
+##### Trusted Hosts Setup #####
+Set-Item WSMan:\localhost\Client\TrustedHosts *.yourdomain.com
 Restart-Service WinRM
 
 ##### Enable CredSSP #####
