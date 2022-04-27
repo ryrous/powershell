@@ -71,7 +71,7 @@ Add-ADGroupMember -Identity $Group -Members $User -Server "europe.fabrikam.com"
 #Download ADMT Password DLL
 Invoke-WebRequest -Uri "https://www.microsoft.com/en-us/download/confirmation.aspx?id=1838" -OutFile $env:userprofile\Downloads
 #install ADMT Password DLL
-.\pwdmig.msi 
+msiexec.exe /i .\pwdmig.msi 
 
 
 #Start Password Export Server Service
