@@ -1,0 +1,1 @@
+ADMT key /Option:Create /SourceDomain:domain.com /KeyFile:C:\mykey.pes /KeyPassword:Password
