@@ -94,7 +94,7 @@ function Find-DuplicateValues {
         Else {
             Foreach ($Domain in $Forests){
                 Write-Host -ForegroundColor Yellow "Searching $Domain for $address"
-                Get-AdObject -Server $Domain -LDAPFilter $LDAPFilter -Properties $Attributes| Select $Attributes | Out-String | FormatColor -StringMatch $($address) -HighlightColor $($Color)
+                Get-AdObject -Server $Domain -LDAPFilter $LDAPFilter -Properties $Attributes| Select-Object $Attributes | Out-String | FormatColor -StringMatch $($address) -HighlightColor $($Color)
             }
         }
     }
