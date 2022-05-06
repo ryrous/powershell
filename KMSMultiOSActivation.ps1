@@ -19,14 +19,10 @@ switch -Regex ($OSversion) {
     'Windows Server 2012 R2 Datacenter'      {$key = 'W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9';break}
     'Windows Server 2016 Standard LTSC'      {$key = 'WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY';break}
     'Windows Server 2016 Datacenter LTSC'    {$key = 'CB7KF-BWN84-R7R2Y-793K2-8XDDG';break}
-    'Windows Server 2019 Standard 1709'      {$key = 'DPCNP-XQFKJ-BJF7R-FRC8D-GF6G4';break}
-    'Windows Server 2019 Datacenter 1709'    {$key = '6Y6KB-N82V8-D8CQV-23MJW-BWTG6';break}
-    'Windows Server 2019 Standard 1803'      {$key = 'PTXN8-JFHJM-4WC78-MPCBR-9W4KR';break}
-    'Windows Server 2019 Datacenter 1803'    {$key = '2HXDN-KRXHB-GPYC7-YCKFJ-7FVDG';break}
-    'Windows Server 2019 Standard 1903'      {$key = 'N2KJX-J94YW-TQVFB-DG9YT-724CC';break}
-    'Windows Server 2019 Datacenter 1903'    {$key = '6NMRW-2C8FM-D24W7-TQWMY-CWH2D';break}
     'Windows Server 2019 Standard LTSC'      {$key = 'N69G4-B89J2-4G8F4-WWYCC-J464C';break}
     'Windows Server 2019 Datacenter LTSC'    {$key = 'WMDGN-G9PQG-XVVXX-R3X43-63DFG';break}
+    'Windows Server 2022 Standard LTSC'      {$key = 'VDYBN-27WPP-V4HQT-9VMD4-VMK7H';break}
+    'Windows Server 2022 Datacenter LTSC'    {$key = 'WX4NM-KYWYW-QJJR4-XV3QB-6VM33';break}
 }
 $KMSservice = Get-WMIObject -query "select * from SoftwareLicensingService"
 Write-Debug 'Activating Windows.'
