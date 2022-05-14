@@ -1,1 +1,0 @@
-TZUTIL /s "Hawaii Standard Time"
