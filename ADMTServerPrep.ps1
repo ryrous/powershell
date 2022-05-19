@@ -46,13 +46,13 @@ Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters 
 Set-Location $env:userprofile\Downloads
 
 
-#################### Download SQL Express #################### 
+#################### Download and Install SQL Express #################### 
 Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=866658" -OutFile $env:userprofile\Downloads
 #Install SQL Server Express 
 .\SQL2019-SSEI-Expr.exe 
 
 
-#################### Download ADMT #################### 
+#################### Download and Install ADMT #################### 
 Invoke-WebRequest -Uri "https://www.microsoft.com/en-us/download/confirmation.aspx?id=56570" -OutFile $env:userprofile\Downloads
 #Install ADMT
 .\admtsetup32.exe
@@ -68,7 +68,7 @@ $Group = Get-ADGroup -Identity "CN=AccountLeads,OU=UserAccounts,DC=EUROPE,DC=FAB
 Add-ADGroupMember -Identity $Group -Members $User -Server "europe.fabrikam.com"
 
 
-#################### Download ADMT Password DLL #################### 
+#################### Download and Install ADMT Password DLL #################### 
 Invoke-WebRequest -Uri "https://www.microsoft.com/en-us/download/confirmation.aspx?id=1838" -OutFile $env:userprofile\Downloads
 #install ADMT Password DLL
 msiexec.exe /i .\pwdmig.msi 
