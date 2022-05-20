@@ -5,6 +5,5 @@ function Set-ARPRetryCount {
             New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name "ArpRetryCount" -Value 0 -Force
         }  
     }
-   
 }
 Set-ARPRetryCount -AsJob -JobName "ArpRetryCount"
