@@ -1,6 +1,4 @@
-workflow Get-ComputerStatus { 
-    ## This workflow can be suspended and resumed at any point, ## as it doesn't have any portions where one step depends ## on system state prepared by a previous step. 
-    $PSPersistPreference = $true 
+function Get-ComputerStatus { 
     ## Get drive usage information "Current disk usage" "------------------" 
     $drives = Get-PSDrive 
     ## Override persistence on a command that doesn't ## support it. 

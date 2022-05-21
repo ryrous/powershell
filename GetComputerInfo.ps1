@@ -1,4 +1,4 @@
-workflow Get-CompInfo {
+function Get-CompInfo {
     Get-Host | Select-Object version
     Get-NetAdapter
     Get-Disk
