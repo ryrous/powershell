@@ -1,1 +1,0 @@
-Move-ADDirectoryServerOperationMasterRole -Identity New-DC -OperationMasterRole RIDMaster,InfrastructureMaster,DomainNamingMaster -Force
