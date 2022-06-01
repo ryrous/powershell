@@ -38,3 +38,10 @@ repadmin.exe /showutdvec
 
 ##Synchronizes a specified domain controller with all replication partners
 repadmin.exe /syncall
+
+## Optional for Authentication
+## DOMAIN\UserName
+/u:
+
+## Password for the user account
+/pw:
