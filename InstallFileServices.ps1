@@ -1,1 +1,0 @@
-Install-WindowsFeature -IncludeAllSubfeature -IncludeManagementTools file-services

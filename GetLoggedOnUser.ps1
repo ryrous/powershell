@@ -1,1 +1,0 @@
-query user /server:$Server
