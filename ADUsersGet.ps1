@@ -1,0 +1,1 @@
+Get-ADuser -Filter * -Properties DisplayName | Format-Table Name,SamAccountName,DistinguishedName | Export-csv C:\Users.csv -NoTypeInformation -UseCulture

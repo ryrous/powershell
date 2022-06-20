@@ -1,0 +1,1 @@
+wmic qfe list | Add-Content -path C:\WindowsUpdate\Updates.txt
