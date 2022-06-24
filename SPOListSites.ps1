@@ -11,7 +11,7 @@ $SPOCredentials = New-Object Microsoft.SharePoint.Client.SharePointOnlineCredent
 function Get-SPOWebs(){
 param(
    $Url = $(throw "Please provide a Site Collection Url"),
-   $Credential = $(throw "Please provide a Credentials")
+   [SecureString] $Credential = $(throw "Please provide a Credentials")
 )
   $context = New-Object Microsoft.SharePoint.Client.ClientContext($Url)  
   $context.Credentials = $Credential 
