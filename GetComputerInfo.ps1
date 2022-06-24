@@ -26,11 +26,8 @@ function Get-PCinfo {
     Write-Host "Getting Disk info.." -ForegroundColor Magenta
     Get-Disk | Format-Table -AutoSize
 
-    Write-Host "Getting Disk Space.." -ForegroundColor Magenta
-    Get-PSDrive | Sort-Object -Property Free -Descending | Format-Table -AutoSize
-
-    Write-Host "Getting Volumes on Disk.." -ForegroundColor Magenta
-    Get-Volume | Sort-Object SizeRemaining | Format-Table -AutoSize
+    Write-Host "Getting Disk Status.." -ForegroundColor Magenta
+    Get-Volume | Where-Object DriveLetter -EQ "C" | Format-Table -AutoSize
 
     Write-Host "Getting Licensing Status.."  -ForegroundColor Magenta
     cscript C:\Windows\System32\slmgr.vbs /dlv
