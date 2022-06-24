@@ -37,9 +37,9 @@ Write-Host "4: Enter 4 to execute Function Four"
 Write-Host "5: Enter 5 to execute Function Five"
 Write-Host "Q: Enter Q to quit."
 
-$input = (Read-Host "Please make a selection").ToUpper()
+$userinput = (Read-Host "Please make a selection").ToUpper()
 
-switch ($input)
+switch ($userinput)
 {
     '1' {Function_One}    ### Input the name of the function you want to execute when 1 is entered
     '2' {Function_Two}    ### Input the name of the function you want to execute when 2 is entered
@@ -47,7 +47,7 @@ switch ($input)
     '4' {Function_Four}   ### Input the name of the function you want to execute when 4 is entered
     '5' {Function_Five}   ### Input the name of the function you want to execute when 5 is entered
     'Q' {Write-Host "The script has been canceled" -BackgroundColor Red -ForegroundColor White}
-    Default {Write-Host "Your selection = $input, is not valid. Please try again." -BackgroundColor Red -ForegroundColor White}
+    Default {Write-Host "Your selection = $userinput, is not valid. Please try again." -BackgroundColor Red -ForegroundColor White}
 }
 
 
@@ -59,4 +59,4 @@ switch ($input)
 
 ### Utilize the below code if you are running from powershell
 Write-Host "Press any key to exit..."
-$Readkey = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
