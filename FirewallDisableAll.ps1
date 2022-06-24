@@ -1,1 +1,1 @@
-Set-NetFirewallProfile -Profile domain,public,private -Enabled false
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
