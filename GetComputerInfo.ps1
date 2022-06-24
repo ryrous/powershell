@@ -27,7 +27,7 @@ function Get-PCinfo {
     Get-NetConnectionProfile | Select-Object Name, InterfaceAlias, IPv4Connectivity, IPv6Connectivity, NetworkCategory | Format-Table -AutoSize
 
     Write-Host "Getting IP Addresses.." -ForegroundColor Magenta
-    Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
+    Get-NetIPAddress -AddressFamily IPv4 | Select-Object InterfaceAlias, IPAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
 
     Write-Host "Getting DNS info.." -ForegroundColor Magenta
     Get-DnsClientServerAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
