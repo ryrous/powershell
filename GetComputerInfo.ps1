@@ -14,6 +14,12 @@ function Get-PCinfo {
     Write-Host "Getting CPU Usage.." -ForegroundColor Magenta
     Get-Process | Where-Object Path -notlike ($env:WINDIR + "*") | Sort-Object CPU | Select-Object Name, CPU, StartTime | Select-Object -Last 10 | Sort-Object CPU -Descending | Format-Table -AutoSize
 
+    Write-Host "Getting Disk info.." -ForegroundColor Magenta
+    Get-Disk | Format-Table -AutoSize
+
+    Write-Host "Getting Disk Status.." -ForegroundColor Magenta
+    Get-Volume | Where-Object DriveLetter -EQ "C" | Format-Table -AutoSize
+    
     Write-Host "Getting Network Adapter info.." -ForegroundColor Magenta
     Get-NetAdapter | Sort-Object Name | Format-Table -AutoSize
 
@@ -22,12 +28,6 @@ function Get-PCinfo {
 
     Write-Host "Getting DNS info.." -ForegroundColor Magenta
     Get-DnsClientServerAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
-
-    Write-Host "Getting Disk info.." -ForegroundColor Magenta
-    Get-Disk | Format-Table -AutoSize
-
-    Write-Host "Getting Disk Status.." -ForegroundColor Magenta
-    Get-Volume | Where-Object DriveLetter -EQ "C" | Format-Table -AutoSize
 
     Write-Host "Getting Licensing Status.."  -ForegroundColor Magenta
     cscript C:\Windows\System32\slmgr.vbs /dlv
