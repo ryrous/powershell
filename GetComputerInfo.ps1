@@ -11,7 +11,7 @@ function Get-PCinfo {
     Write-Host "Getting CPU Info.." -ForegroundColor Magenta
     Get-WMIObject Win32_Processor | Select-Object Name, MaxClockSpeed, NumberOfCores | Format-Table -AutoSize
 
-    Write-Host "Getting CPU Usage.." -ForegroundColor Magenta
+    Write-Host "Getting 10 highest processes on CPU Usage.." -ForegroundColor Magenta
     Get-Process | Where-Object Path -notlike ($env:WINDIR + "*") | Sort-Object CPU | Select-Object Name, CPU, StartTime | Select-Object -Last 10 | Sort-Object CPU -Descending | Format-Table -AutoSize
 
     Write-Host "Getting Disk info.." -ForegroundColor Magenta
