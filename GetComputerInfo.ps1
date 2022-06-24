@@ -36,3 +36,4 @@ function Get-PCinfo {
     cscript C:\Windows\System32\slmgr.vbs /dlv
 }
 Get-PCinfo
+Read-Host -Prompt "Press Enter to exit"
