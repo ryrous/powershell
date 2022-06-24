@@ -1,33 +1,36 @@
 function Get-PCinfo {
     Write-Host "Getting PowerShell Version.." -ForegroundColor Magenta
-    Get-Host
+    Get-Host | Select-Object InstanceID, Version, DebuggerEnabled, IsRunspacePushed | Format-Table -AutoSize
+
+    Write-Host "Getting LoggedOn User.." -ForegroundColor Magenta
+    Get-WMIObject Win32_LoggedOnUser | Select-Object RunspaceId, __Server, Antecedent, Dependent | Format-Table -AutoSize
 
     Write-Host "Getting BIOS Version.." -ForegroundColor Magenta
-    Get-WMIObject Win32_BIOS | Select-Object Manufacturer, SMBIOSBIOSVersion, ReleaseDate, SerialNumber | Format-Table
+    Get-WMIObject Win32_BIOS | Select-Object Manufacturer, SMBIOSBIOSVersion, ReleaseDate, SerialNumber | Format-Table -AutoSize
 
     Write-Host "Getting CPU Info.." -ForegroundColor Magenta
-    Get-WMIObject Win32_Processor | Select-Object Name, MaxClockSpeed, NumberOfCores | Format-Table
+    Get-WMIObject Win32_Processor | Select-Object Name, MaxClockSpeed, NumberOfCores | Format-Table -AutoSize
 
     Write-Host "Getting CPU Usage.." -ForegroundColor Magenta
-    Get-Process | Where-Object Path -notlike ($env:WINDIR + "*") | Sort-Object CPU | Select-Object Name, CPU, StartTime | Select-Object -Last 10 | Sort-Object CPU -Descending | Format-Table
+    Get-Process | Where-Object Path -notlike ($env:WINDIR + "*") | Sort-Object CPU | Select-Object Name, CPU, StartTime | Select-Object -Last 10 | Sort-Object CPU -Descending | Format-Table -AutoSize
 
     Write-Host "Getting Network Adapter info.." -ForegroundColor Magenta
-    Get-NetAdapter | Sort-Object Name | Format-Table
+    Get-NetAdapter | Sort-Object Name | Format-Table -AutoSize
 
     Write-Host "Getting IP Addresses.." -ForegroundColor Magenta
-    Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress | Sort-Object InterfaceAlias | Format-Table
+    Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
 
     Write-Host "Getting DNS info.." -ForegroundColor Magenta
-    Get-DnsClientServerAddress | Sort-Object InterfaceAlias | Format-Table
+    Get-DnsClientServerAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
 
     Write-Host "Getting Disk info.." -ForegroundColor Magenta
-    Get-Disk | Format-Table
+    Get-Disk | Format-Table -AutoSize
 
     Write-Host "Getting Disk Space.." -ForegroundColor Magenta
-    Get-PSDrive | Sort-Object -Property Free -Descending | Format-Table
+    Get-PSDrive | Sort-Object -Property Free -Descending | Format-Table -AutoSize
 
     Write-Host "Getting Volumes on Disk.." -ForegroundColor Magenta
-    Get-Volume | Sort-Object SizeRemaining | Format-Table
+    Get-Volume | Sort-Object SizeRemaining | Format-Table -AutoSize
 
     Write-Host "Getting Licensing Status.."  -ForegroundColor Magenta
     cscript C:\Windows\System32\slmgr.vbs /dlv
