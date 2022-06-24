@@ -26,11 +26,17 @@ function Get-PCinfo {
     Write-Host "Getting Network Connection info.." -ForegroundColor Magenta
     Get-NetConnectionProfile | Select-Object Name, InterfaceAlias, IPv4Connectivity, IPv6Connectivity, NetworkCategory | Format-Table -AutoSize
 
-    Write-Host "Getting IP Addresses.." -ForegroundColor Magenta
+    Write-Host "Getting IPv4 Addresses.." -ForegroundColor Magenta
     Get-NetIPAddress -AddressFamily IPv4 | Select-Object InterfaceAlias, IPAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
 
-    Write-Host "Getting DNS info.." -ForegroundColor Magenta
-    Get-DnsClientServerAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
+    Write-Host "Getting IPv6 Addresses.." -ForegroundColor Magenta
+    Get-NetIPAddress -AddressFamily IPv6 | Select-Object InterfaceAlias, IPAddress | Sort-Object InterfaceAlias | Format-Table -AutoSize
+
+    Write-Host "Getting DNS IPv4 info.." -ForegroundColor Magenta
+    Get-DnsClientServerAddress -AddressFamily IPv4 | Sort-Object InterfaceAlias | Format-Table -AutoSize
+
+    Write-Host "Getting DNS IPv6 info.." -ForegroundColor Magenta
+    Get-DnsClientServerAddress -AddressFamily IPv6 | Sort-Object InterfaceAlias | Format-Table -AutoSize
 
     Write-Host "Getting Licensing Status.."  -ForegroundColor Magenta
     cscript C:\Windows\System32\slmgr.vbs /dlv
