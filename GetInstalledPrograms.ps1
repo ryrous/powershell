@@ -23,5 +23,5 @@ foreach($Server in $Servers){
         $array += $obj
     } 
 }
-$array | Where-Object { $_.DisplayName } | Select-Object ComputerName, DisplayName, DisplayVersion, Publisher | Format-Table -AutoSize
-# Where-Object { $_.DisplayName -and $_.computerName -eq “thisComputer”}
+$array | Where-Object {$_.DisplayName} | Select-Object ComputerName, DisplayName, DisplayVersion, Publisher | Format-Table -AutoSize
+# Where-Object {$_.DisplayName -and $_.computerName -eq “thisComputer”}
