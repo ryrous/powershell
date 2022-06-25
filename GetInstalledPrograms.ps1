@@ -3,7 +3,7 @@ $array = @()
 foreach($Server in $Servers){
     $ServerName=$Server.ComputerName
     #Define the variable to hold the location of Currently Installed Programs
-    $UninstallKeyLocation="SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall" 
+    $UninstallKeyLocation="HKLM:Software\Microsoft\Windows\CurrentVersion\Uninstall" 
     #Create an instance of the Registry Object and open the HKLM base key
     $Reg=[Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey('LocalMachine',$ServerName) 
     #Drill down into the Uninstall key using the OpenSubKey Method
