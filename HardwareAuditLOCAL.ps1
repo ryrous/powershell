@@ -46,6 +46,6 @@ Get-CimInstance -Class Win32_SystemEnclosure -ComputerName $name  | Select-Objec
 Invoke-Expression "$filepath\$name.html"
  
 # Copy to Local C:\HardwareAudits #
-New-Item -ItemType Directory -path "C:\HardwareAudits" -ErrorVariable capturedErrors -ErrorAction SilentlyContinue
-$capturedErrors | foreach-object { if ($_ -notmatch "already exists") { write-error $_ } }
-Copy-Item "$filepath\$name.html" -Destination 'C:\HardwareAudits'
+New-Item -ItemType Directory -path "C:\Temp\HardwareAudits" -ErrorVariable CapturedErrors -ErrorAction SilentlyContinue
+$capturedErrors | Foreach-Object {if ($_ -notmatch "already exists") {Write-Error $_ }}
+Copy-Item "$filepath\$name.html" -Destination 'C:\Temp\HardwareAudits'
