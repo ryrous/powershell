@@ -1,1 +1,2 @@
-wmic qfe list | Add-Content -path C:\WindowsUpdate\Updates.txt
+# Get Installed Updates
+wmic qfe list #| Add-Content -path C:\Temp\InstalledUpdates.txt -Force
