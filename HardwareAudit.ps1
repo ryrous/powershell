@@ -4,10 +4,10 @@ $Servers = Get-Content C:\Temp\Serverlist.txt
 $Report = @()
 Foreach ($Server in $Servers) {
     $CPU = Get-WmiObject Win32_Processor #Get CPU Information
-    $OSInfo = Get-WmiObject Win32_OperatingSystem #Get OS Information
+    $OS = Get-WmiObject Win32_OperatingSystem #Get OS Information
     #Get Memory Information. The data will be shown in a table as MB, rounded to the nearest MB.
-    $OSTotalVirtualMemory = [math]::round($OSInfo.TotalVirtualMemorySize / 1MB)
-    $OSTotalVisibleMemory = [math]::round($OSInfo.TotalVisibleMemorySize / 1MB)
+    $OSTotalVirtualMemory = [math]::round($OS.TotalVirtualMemorySize / 1MB)
+    $OSTotalVisibleMemory = [math]::round($OS.TotalVisibleMemorySize / 1MB)
     #Get Physical Memory Information. The data will be shown in a table as GB, rounded to the nearest GB.
     $PhysicalMemory = Get-WmiObject CIM_PhysicalMemory | Measure-Object -Property Capacity -Sum | ForEach-Object {[Math]::Round($_.sum / 1GB)}
     #Get Disk Information. The data will be shown in a table as GB, rounded to the nearest GB.
@@ -23,8 +23,8 @@ Foreach ($Server in $Servers) {
     Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "CPU L3 Cache Size" -Value $CPU.L3CacheSize
     Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "Sockets" -Value $CPU.SocketDesignation
     Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "Logical Cores" -Value $CPU.NumberOfLogicalProcessors
-    Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "OS Name" -Value $OSInfo.Caption
-    Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "OS Version" -Value $OSInfo.Version
+    Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "OS Name" -Value $OS.Caption
+    Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "OS Version" -Value $OS.Version
     Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "Total Physical Memory in GB" -Value $PhysicalMemory
     Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "TotalVirtual Memory in MB" -Value $OSTotalVirtualMemory
     Add-Member -inputObject $ReportObject -memberType NoteProperty -Name "TotalVisable Memory in MB" -Value $OSTotalVisibleMemory
