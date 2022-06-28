@@ -1,2 +1,2 @@
-Get-WmiObject Win32_BaseBoard | Export-Csv -Path C:\ExportDir\MBinfo.csv -Force 
-# Format-Table PSComputerName, Manufacturer, Model, Name, Serialnumber, SKU, Product -autosize
+# Get Motherboard Information
+Get-WmiObject Win32_BaseBoard | Select-Object PSComputerName, Manufacturer, Model, Name, Serialnumber, SKU, Product | Sort-Object PSComputerName | Format-Table -Autosize
