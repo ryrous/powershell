@@ -1,2 +1,2 @@
 # Get Primary Domain Controller
-Get-ADDomainController -Discover -DomainName $Domain -Service "PrimaryDC" -ForceDiscover 
+Get-ADDomainController -Discover -DomainName domain.com -Service "PrimaryDC" -ForceDiscover
