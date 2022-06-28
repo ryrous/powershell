@@ -1,8 +1,8 @@
 $ApplicationId = 'YourApplicationID'
 $ApplicationSecret = 'YourApplicationSecret' | Convertto-SecureString -AsPlainText -Force
-$TenantID = 'YourTenantID'
+#$TenantID = 'YourTenantID'
 $ExchangeRefreshToken = 'YourExchangeToken'
-$RefreshToken = 'YourRefreshToken'
+#$RefreshToken = 'YourRefreshToken'
 $UPN = "UPN-Used-To-Generate-Token"
 $ClientTenantName = "bla.onmicrosoft.com"
 ##############################
@@ -16,8 +16,9 @@ $logs = foreach ($customer in $customers) {
     $tokenValue = ConvertTo-SecureString "Bearer $($token.AccessToken)" -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential($upn, $tokenValue)
     $customerId = $customer.DefaultDomainName
-    $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://ps.outlook.com/powershell-liveid?DelegatedOrg=$($customerId)&BasicAuthToOAuthConversion=true" -Credential $credential -Authentication Basic -AllowRedirection
-    $s = import-PSSession $session -AllowClobber -CommandName "Search-unifiedAuditLog", "Get-AdminAuditLogConfig"
+    $PSSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://ps.outlook.com/powershell-liveid?DelegatedOrg=$($customerId)&BasicAuthToOAuthConversion=true" -Credential $credential -Authentication Basic -AllowRedirection
+    $MySession = import-PSSession $PSSession -AllowClobber -CommandName "Search-unifiedAuditLog", "Get-AdminAuditLogConfig"
+    $MySession
     if((Get-AdminAuditLogConfig).UnifiedAuditLogIngestionEnabled -eq $false){
         Write-Host "AuditLog is disabled for client $ClientTenantName)"
     }
@@ -34,10 +35,10 @@ $logs = foreach ($customer in $customers) {
     $LogsTenant
 }
 
-foreach($log in $logs){
+foreach ($log in $logs){
     $AuditData = $log.AuditData | ConvertFrom-Json
     Write-Host "A new or changed rule has been found for user $($log.UserIds). The rule has the following info: $($Auditdata.Parameters | out-string)`n"
 }
-if(!$Logs){
+if (!$Logs){
     Write-Host "Healthy."
 }

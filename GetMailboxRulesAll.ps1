@@ -19,8 +19,9 @@ $logs = foreach ($customer in $customers) {
     $tokenValue = ConvertTo-SecureString "Bearer $($token.AccessToken)" -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential($upn, $tokenValue)
     $customerId = $customer.DefaultDomainName
-    $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://ps.outlook.com/powershell-liveid?DelegatedOrg=$($customerId)&BasicAuthToOAuthConversion=true" -Credential $credential -Authentication Basic -AllowRedirection
-    $s = import-PSSession $session -AllowClobber -CommandName "Search-unifiedAuditLog", "Get-AdminAuditLogConfig"
+    $PSSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://ps.outlook.com/powershell-liveid?DelegatedOrg=$($customerId)&BasicAuthToOAuthConversion=true" -Credential $credential -Authentication Basic -AllowRedirection
+    $MySession = Import-PSSession $PSSession -AllowClobber -CommandName "Search-UnifiedAuditLog", "Get-AdminAuditLogConfig"
+    $MySession
     if((Get-AdminAuditLogConfig).UnifiedAuditLogIngestionEnabled -eq $false){
         Write-Host "AuditLog is disabled for client $($customer.name)"
     }
