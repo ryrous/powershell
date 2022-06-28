@@ -34,4 +34,4 @@ Foreach ($s in $servers) {
         $infoColl += $infoObject
     }
 }
-$infoColl | Export-Csv -Path .\Server_Inventory_$((Get-Date).ToString('MM-dd-yyyy')).csv -NoTypeInformation -Force #Export the results in csv file.
+$infoColl | Export-Csv -Path .\Server_Inventory_$((Get-Date).ToString('MM-dd-yyyy')).csv -NoTypeInformation -Force
