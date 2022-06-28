@@ -1,5 +1,5 @@
 #Get the server list
-$servers = Get-Content .\Serverlist.txt
+$servers = Get-Content C:\Temp\Serverlist.txt
 #Run the commands for each server in the list
 $infoColl = @()
 Foreach ($s in $servers) {
@@ -34,4 +34,4 @@ Foreach ($s in $servers) {
         $infoColl += $infoObject
     }
 }
-$infoColl | Export-Csv -Path .\Server_Inventory_$((Get-Date).ToString('MM-dd-yyyy')).csv -NoTypeInformation -Force
+$infoColl | Export-Csv -Path C:\Temp\Server_Inventory_$((Get-Date).ToString('MM-dd-yyyy')).csv -NoTypeInformation -Force
