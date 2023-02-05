@@ -6,15 +6,15 @@ Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies
                  
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
                  -Name “ConsentPromptBehaviorAdmin” `
-                 -Value "0"
+                 -Value "0" `
                  -Force
                  
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
                  -Name “ConsentPromptBehaviorUser” `
-                 -Value "0"
+                 -Value "0" `
                  -Force
                  
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" `
                  -Name “PromptOnSecureDesktop” `
-                 -Value "0"
+                 -Value "0" `
                  -Force
