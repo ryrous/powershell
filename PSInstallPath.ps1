@@ -1,3 +1,3 @@
 $CurrentValue = [Environment]::GetEnvironmentVariable("PSModulePath", "Machine")
-[Environment]::SetEnvironmentVariable("PSModulePath", $CurrentValue + [System.IO.Path]::PathSeparator + "/usr/local/microsoft/powershell/7/Modules", "Machine")
+[Environment]::SetEnvironmentVariable("PSModulePath", $CurrentValue + [System.IO.Path]::PathSeparator + "/Program Files/Powershell/Modules", "Machine")
 $env:PSModulePath
