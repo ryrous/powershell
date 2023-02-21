@@ -1,6 +1,6 @@
 # Convert your Administrator password to a secure string
 $Password = ConvertTo-SecureString "password" -AsPlainText -Force
-# Create a new PSCredential object using the domain\username and password
+# Create a new PSCredential object using your Administrator domain\username and password
 $Credential = New-Object System.Management.Automation.PSCredential ("Domain\UserName", $Password)
 # Set the domain and username
 $Domain = "domain.com"
