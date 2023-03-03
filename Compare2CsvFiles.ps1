@@ -8,6 +8,9 @@ $Results = Compare-Object -ReferenceObject $File1 -DifferenceObject $File2 -Prop
 
 ForEach ($Result in $Results) {
     If ($Result.SideIndicator -eq "==") {
-        Write-Output "Name: $($Result.Name) Status: $($File2.Where({$PSItem.Name -eq $Result.Name}).Status)"
+        $Name = $($Result.Name)
+        $Status = $($File2.Where({$PSItem.Name -eq $Result.Name}).Status)
+        Write-Output "Name: $Name; Status: $Status" 
+        New-Object PSObject -Property @{'Name'= $Name; 'Status'= $Status} | Export-Csv "C:\CsvCompare\Results.csv" -Append -NoTypeInformation
     }
 }
