@@ -95,7 +95,7 @@ choco install intel-dsa
 choco install intel-graphics-driver
 
 # Java
-choco install jre8
+choco install javaruntime
 
 # Microsoft
 choco install dotnetfx
