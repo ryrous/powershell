@@ -50,7 +50,6 @@ choco install psexec
 choco install pstools
 choco install pswindowsupdate
 choco install rsat
-choco install sql-server-management-studio
 choco install sysinternals
 choco install vcredist140
 choco install vscode
