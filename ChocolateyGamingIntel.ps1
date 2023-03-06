@@ -69,9 +69,6 @@ choco install nvidia-geforce-now
 # Proton
 choco install protonvpn
 
-# Zoom
-choco install zoom
-
 # Utilities
 choco install 7zip
 choco install ccleaner
