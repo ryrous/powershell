@@ -31,7 +31,6 @@ choco install trafficlight-firefox
 choco install chromium
 choco install firefox
 choco install googlechrome
-choco install safari
 choco install tor-browser
 choco install waterfox
 
