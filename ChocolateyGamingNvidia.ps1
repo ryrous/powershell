@@ -60,6 +60,12 @@ choco install wsl2
 choco install nordpass
 choco install nordvpn
 
+# nVidia
+choco install geforce-experience
+choco install geforce-game-ready-driver
+choco install nvidia-display-driver
+choco install nvidia-geforce-now
+
 # Proton
 choco install protonvpn
 
