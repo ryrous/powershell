@@ -40,9 +40,9 @@ choco install intel-graphics-driver
 choco install jre8
 
 # Microsoft
-choco install dotnetfx
 choco install microsoft-teams
 choco install microsoft-windows-terminal
+choco install netfx-4.8.1
 choco install nugetpackagemanager
 choco install office365business
 choco install onedrive
