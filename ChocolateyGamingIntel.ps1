@@ -41,7 +41,6 @@ choco install jre8
 
 # Microsoft
 choco install dotnetfx
-choco install microsoft-edge
 choco install microsoft-teams
 choco install microsoft-windows-terminal
 choco install nugetpackagemanager
