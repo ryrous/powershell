@@ -101,6 +101,7 @@ choco install intel-dsa
 choco install intel-graphics-driver
 
 # Java
+choco install jdk8
 choco install jre8
 
 # Microsoft
