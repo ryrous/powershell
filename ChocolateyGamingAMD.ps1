@@ -35,7 +35,7 @@ choco install google-voice-desktop
 choco install googleearthpro
 
 # Java
-choco install javaruntime
+choco install jre8
 
 # Microsoft
 choco install dotnetfx

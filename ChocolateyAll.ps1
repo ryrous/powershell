@@ -72,6 +72,11 @@ choco install egnyte-desktop-app
 choco install eset-internet-security
 choco install eset-nod32-antivirus
 
+# Gaming
+choco install discord
+choco install ea-app
+choco install ubisoft-connect
+
 # Git
 choco install gh
 choco install github-desktop
@@ -95,7 +100,7 @@ choco install intel-dsa
 choco install intel-graphics-driver
 
 # Java
-choco install javaruntime
+choco install jre8
 
 # Microsoft
 choco install dotnetfx
