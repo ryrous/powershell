@@ -13,15 +13,18 @@ choco install trafficlight-chrome
 choco install trafficlight-firefox
 
 # Browsers
-choco install chromium
 choco install firefox
 choco install googlechrome
-choco install tor-browser
 choco install waterfox
 
 # CPU-Z
 choco install cpu-z
 choco install hwmonitor
+
+# Gaming
+choco install discord
+choco install ea-app
+choco install ubisoft-connect
 
 # Google
 choco install googledrive
