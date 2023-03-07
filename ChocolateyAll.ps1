@@ -165,13 +165,6 @@ choco install vmware-workstation-player
 choco install zoom
 choco install zoom-outlook
 
-# Utilities
-choco install 7zip
-choco install ccleaner
-choco install crystaldiskinfo
-choco install dependencywalker
-choco install greenshot
-
 # Utilities - FTP
 choco install filezilla
 choco install filezilla.server
@@ -190,13 +183,18 @@ choco install teamviewer
 choco install teamviewer-qs
 
 # Miscellaneous
-choco install 1password
+choco install 7zip
 choco install adobereader
 choco install authy-desktop
+choco install ccleaner
 choco install citrix-workspace
+choco install crystaldiskinfo
 choco install datadog-agent
+choco install dependencywalker
 choco install dropbox
+choco install greenshot
 choco install itunes
 choco install slack
 choco install speedtest
+choco install treesizefree
 choco install utorrent

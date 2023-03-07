@@ -72,19 +72,18 @@ choco install nvidia-geforce-now
 # Proton
 choco install protonvpn
 
-# Utilities
-choco install 7zip
-choco install ccleaner
-choco install crystaldiskinfo
-choco install dependencywalker
-choco install greenshot
-
 # Utilities - Network
 choco install advanced-ip-scanner
 
 # Miscellaneous
+choco install 7zip
 choco install adobereader
+choco install ccleaner
+choco install crystaldiskinfo
+choco install dependencywalker
 choco install dropbox
+choco install greenshot
 choco install itunes
 choco install speedtest
+choco install treesizefree
 choco install utorrent
