@@ -105,10 +105,10 @@ choco install jdk8
 choco install jre8
 
 # Microsoft
-choco install netfx-4.8.1
-choco install netfx-4.8.1-devpack
 choco install microsoft-teams
 choco install microsoft-windows-terminal
+choco install netfx-4.8.1
+choco install netfx-4.8.1-devpack
 choco install nugetpackagemanager
 choco install office365business
 choco install onedrive
