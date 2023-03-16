@@ -25,6 +25,7 @@ choco install hwmonitor
 # Gaming
 choco install discord
 choco install ea-app
+choco install steam
 choco install ubisoft-connect
 
 # Google
