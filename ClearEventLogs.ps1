@@ -3,3 +3,4 @@ function clear-all-event-logs ($computerName="localhost") {
    $logs | ForEach-Object {Clear-EventLog -ComputerName $computername -LogName $_ }
    Get-EventLog -ComputerName $computername -list
 }
+clear-all-event-logs
