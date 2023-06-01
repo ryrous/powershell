@@ -1,16 +1,8 @@
 #Importing CSV
-$File1 = Import-Csv -Path "C:\CsvCompare\NewList.csv"
+$File1 = @(Import-Csv -Path ".\File1.csv")
 #Importing CSV 
-$File2 = Import-Csv -Path "C:\CsvCompare\DecomList.csv"
- 
-#Compare both CSV files - column SamAccountName
-$Results = Compare-Object -ReferenceObject $File1 -DifferenceObject $File2 -Property Name -IncludeEqual
-
-ForEach ($Result in $Results) {
-    If ($Result.SideIndicator -eq "==") {
-        $Name = $($Result.Name)
-        $Status = $($File2.Where({$PSItem.Name -eq $Result.Name}).Status)
-        Write-Output "Name: $Name; Status: $Status" 
-        New-Object PSObject -Property @{'Name'= $Name; 'Status'= $Status} | Export-Csv "C:\CsvCompare\Results.csv" -Append -NoTypeInformation
-    }
-}
+$File2 = @(Import-Csv -Path ".\File2.csv")
+#Remove Rows from File2 that are not in File1
+$File1 = @($File1 | Where-Object {
+    @(Compare-Object $_ $File2 -Property Name -IncludeEqual -ExcludeDifferent).count -eq 1
+}) | Export-Csv ".\File3.csv" -Append -NoTypeInformation
