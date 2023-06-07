@@ -51,7 +51,7 @@ Foreach ($VM in $VMS) {
 }
 
 #Create the VM
-New-VM -Name $Name -Path $Path  -MemoryStartupBytes $RAMCount  -Generation 2 -NoVHD
+New-VM -Name $Name -Path $Path -MemoryStartupBytes $RAMCount -Generation 2 -NoVHD
  
 #Remove any auto generated adapters and add new ones with correct names for Consistent Device Naming
 Get-VMNetworkAdapter -VMName $Name | Remove-VMNetworkAdapter
