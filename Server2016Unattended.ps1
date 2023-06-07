@@ -1,5 +1,6 @@
-#Arm the Variables, a bunch of them
-
+############################################################
+#Part 1 Variables
+############################################################
 #Cpu Cores in the VM
 $CpuCount = 2
 #Ram Size
@@ -33,11 +34,12 @@ $VHDPath = $Path + $Name + "\" + $Name + ".vhdx"
 $StartupFolder = "C:\ISO"
 $TemplateLocation = "C:\ISO\Template2016.vhdx"
 $UnattendLocation = "C:\ISO\unattend.xml"
-#Part 1 Complete-------------------------------------------------------------------------------#
+###### Part 1 Complete ###### 
 
 
-
-#Part 2 Initialize---------------------------------------------------------------------------------#
+############################################################
+#Part 2 Initialize
+############################################################
 #Start the Party!
 #Let's see if there are any VM's with the same name if you actually find any simply inform the user
 $VMS=Get-VM
@@ -103,4 +105,4 @@ Copy-Item $NewXML $DriveLetter\unattend.xml
 Dismount-Vhd -Path $VHDPath
 #Fire up the VM
 Start-VM $Name
-#Part 2 Complete---------------------------------------------------------------------#
+###### Part 2 Complete ######
