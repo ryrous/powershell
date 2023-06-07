@@ -77,7 +77,7 @@ Get-VMFirmware -VMName $Name | Set-VMFirmware -FirstBootDevice $Drive
  
 #Prepare the unattend.xml file to send out, simply copy to a new file and replace values
 Copy-Item $UnattendLocation $StartupFolder\"unattend"$Name".xml"
-$DefaultXML = $StartupFolder+ "\unattend"+$Name+".xml"
+$DefaultXML = $StartupFolder + "\unattend"+$Name+".xml"
 $NewXML = $StartupFolder + "\unattend$Name.xml"
 $DefaultXML = Get-Content $DefaultXML
 $DefaultXML | Foreach-Object {$_`
@@ -92,7 +92,7 @@ $DefaultXML | Foreach-Object {$_`
     -replace '1AdminPassword', $AdminPassword `
     -replace '1IPDomain', $IPDomain `
 } | Set-Content $NewXML
- 
+
 #Mount the new virtual machine VHD
 Mount-Vhd -Path $VHDPath
 #Find the drive letter of the mounted VHD
