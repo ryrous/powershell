@@ -1,5 +1,5 @@
 #Arm the Variables, a bunch of them
- 
+
 #Cpu Cores in the VM
 $CpuCount=2
 #Ram Size
@@ -54,7 +54,7 @@ Foreach($VM in $VMS)
 New-VM -Name $Name -Path $Path  -MemoryStartupBytes $RAMCount  -Generation 2 -NoVHD
  
 #Remove any auto generated adapters and add new ones with correct names for Consistent Device Naming
-Get-VMNetworkAdapter -VMName $Name |Remove-VMNetworkAdapter
+Get-VMNetworkAdapter -VMName $Name | Remove-VMNetworkAdapter
 Add-VMNetworkAdapter -VMName $Name -SwitchName $SwitchNameDomain -Name $NetworkAdapterName -DeviceNaming On
  
 #Start and stop VM to get mac address, then arm the new MAC address on the NIC itself
@@ -64,7 +64,7 @@ stop-vm $Name -Force
 Start-Sleep 5
 $MACAddress=get-VMNetworkAdapter -VMName $Name -Name $NetworkAdapterName|select MacAddress -ExpandProperty MacAddress
 $MACAddress=($MACAddress -replace '(..)','$1-').trim('-')
-get-VMNetworkAdapter -VMName $Name -Name $NetworkAdapterName|Set-VMNetworkAdapter -StaticMacAddress $MACAddress
+Get-VMNetworkAdapter -VMName $Name -Name $NetworkAdapterName | Set-VMNetworkAdapter -StaticMacAddress $MACAddress
  
 #Copy the template and add the disk on the VM. Also configure CPU and start - stop settings
 Copy-item $TemplateLocation -Destination  $VHDPath
