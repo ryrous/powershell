@@ -18,6 +18,15 @@ $NonDefaultServices.Started # Service Started status
 $NonDefaultServices.Description # Service Description
 
 Foreach ($Service in $NonDefaultServices) {
-    Write-Output "Stopping Service: $($Service.DisplayName)"
-    Get-Service $Service | Stop-Service -Force
+    Stop-Service $Service -Force
+    Write-Host $Service.Status
+    Write-Host 'Service stopping'
+    Start-Sleep -Seconds 60
+    $Service.Refresh()
+    if ($Service.Status -ne 'Running') {
+        Write-Host 'Service is now Stopped'
+    }
+    else {
+        Write-Host "Service could not be Stopped"
+    }
 }
