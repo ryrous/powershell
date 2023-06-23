@@ -1,21 +1,21 @@
 # Replace "smtp.domain.com" with your mail server name
-$smtp=New-Object Net.Mail.SmtpClient("smtp.domain.com")
+$smtp = New-Object Net.Mail.SmtpClient("smtp.domain.com")
 
 # Set thresholds (in gigabytes) for C: drive and for the remaining drives
-$driveCthreshold=10
-$threshold=60
+$driveCthreshold = 10
+$threshold = 60
 
 # Replace settings below with your e-mails
-$emailFrom="DBServer@domain.com"
-$emailTo="email2@domain.com"
+$emailFrom = "DBServer@domain.com"
+$emailTo = "email2@domain.com"
 
 # Get SQL Server hostname
-$hostname=Get-WMIObject Win32_ComputerSystem | Select-Object -ExpandProperty name
+$hostname = Get-WMIObject Win32_ComputerSystem | Select-Object -ExpandProperty Name
 
 # Get all drives with free space less than a threshold. Exclude System Volumes
-$Results = Get-WmiObject -Class Win32_Volume -Filter "SystemVolume='False' AND DriveType=3"|`
-Where-Object {($_.FreeSpace/1GB –lt  $driveCthreshold –and $_.DriveLetter -eq "C:")`
-–or ($_.FreeSpace/1GB –lt  $threshold –and $_.DriveLetter -ne "C:" )}
+$Results = Get-WmiObject -Class Win32_Volume -Filter "SystemVolume='False' AND DriveType=3" | Where-Object {`
+	($_.FreeSpace/1GB -lt  $driveCthreshold -and $_.DriveLetter -eq "C:") -or ($_.FreeSpace/1GB -lt  $threshold -and $_.DriveLetter -ne "C:" )
+}
 
 ForEach ($Result In $Results){
     $drive = $Result.DriveLetter
