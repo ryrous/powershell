@@ -1,4 +1,4 @@
-$NonDefaultServices = Get-wmiobject win32_service | Where-Object { 
+$NonDefaultServices = Get-WmiObject Win32_Service | Where-Object { 
     $_.Caption -notmatch "Windows" -and 
     $_.PathName -notmatch "Windows" -and
     $_.PathName -notmatch "policyhost.exe" -and 
