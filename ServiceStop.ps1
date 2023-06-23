@@ -1,21 +1,16 @@
 $ServiceName = 'Name of Service'
 $arrService = Get-Service -Name $ServiceName
 
-while ($arrService.Status -eq 'Running')
-{
-
+while ($arrService.Status -eq 'Running') {
     Stop-Service $ServiceName
-    write-host $arrService.status
-    write-host 'Service stopping'
-    Start-Sleep -seconds 60
+    Write-Host $arrService.status
+    Write-Host 'Service stopping'
+    Start-Sleep -Seconds 60
     $arrService.Refresh()
-    if ($arrService.Status -ne 'Running')
-    {
+    if ($arrService.Status -ne 'Running') {
         Write-Host 'Service is now Stopped'
     }
-    else
-    {
+    else {
         Write-Host "Service could not be Stopped"
     }
-
 }
