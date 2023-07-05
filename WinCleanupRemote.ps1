@@ -1,4 +1,3 @@
-#Requires -Version 7.0
 Get-ADGroupMember -Identity "Workstations" | Select-Object Name | Out-File C:\Workstations.txt -Force
 $WS = Get-Content C:\Workstations.txt | Select-Object -Skip 3
 foreach ($w in $WS){
