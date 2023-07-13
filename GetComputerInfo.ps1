@@ -1,6 +1,6 @@
 function Get-PCinfo {
     Write-Host "Getting OS Info.." -ForegroundColor Magenta
-    Get-ComputerInfo | Select-Object OSName, OsVersion | Format-Table -AutoSize
+    systeminfo | findstr /B /C:"OS Name" /B /C:"OS Version" | Format-Table -AutoSize
 
     Write-Host "Getting LoggedOn User.." -ForegroundColor Magenta
     Get-WMIObject Win32_LoggedOnUser | Select-Object __Server, Antecedent, Dependent | Format-Table -AutoSize
