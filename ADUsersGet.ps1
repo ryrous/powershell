@@ -1,1 +1,3 @@
-Get-ADuser -Filter * -Properties DisplayName | Format-Table Name,SamAccountName,DistinguishedName | Export-csv C:\Users.csv -NoTypeInformation -UseCulture
+### GET ALL USER ACCOUNTS ###
+Get-ADuser -Filter * -Properties SamAccountName,DisplayName,UserPrincipalName,whenCreated,PasswordLastSet,PasswordNeverExpires,MemberOf,LastLogonDate `
+			| Export-csv .\AllUsers.csv -NoTypeInformation -UseCulture
