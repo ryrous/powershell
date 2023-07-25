@@ -7,3 +7,10 @@ Get-ADGroupMember -Server domain.com `
 Get-ADGroupMember -Server domain.com `
                   -Identity "Local Admin Users" `
                   -Recursive | Export-Csv -Path C:\ExportDir\LocalAdmins.csv
+
+### Export All Groups and their Membership to CSV ###
+Get-ADGroup -Server domain.com `
+            -Filter * `
+            -Properties * `
+            | Select-Object -Property Name, GroupCategory, GroupScope, DistinguishedName, Description, ManagedBy, @{Name="Members";Expression={($_ | Get-ADGroupMember | Select-Object -ExpandProperty Name) -join ";"}} `
+            | Export-Csv -Path C:\ExportDir\AllGroups.csv
