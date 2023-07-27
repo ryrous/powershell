@@ -10,10 +10,10 @@ This script will reset all of the Windows Updates components to DEFAULT SETTINGS
 $arch = Get-WMIObject -Class Win32_Processor -ComputerName LocalHost | Select-Object AddressWidth 
  
 Write-Host "1. Stopping Windows Update Services..." 
-Stop-Service -Name BITS 
-Stop-Service -Name wuauserv 
-Stop-Service -Name appidsvc 
-Stop-Service -Name cryptsvc 
+Stop-Service -Name BITS -Force
+Stop-Service -Name wuauserv -Force
+Stop-Service -Name appidsvc -Force
+Stop-Service -Name cryptsvc -Force
  
 Write-Host "2. Remove QMGR Data file..." 
 Remove-Item "$env:allusersprofile\Application Data\Microsoft\Network\Downloader\qmgr*.dat" -ErrorAction SilentlyContinue 
