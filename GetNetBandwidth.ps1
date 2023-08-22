@@ -18,7 +18,7 @@ while ($timeSpan -gt 0) {
 
       # Exclude Nulls (any WMI failures)
       if ($totalBits -gt 0) {
-         $result = (( $bitsPerSec / $totalBits) * 100)
+         $result = (($bitsPerSec / $totalBits) * 100)
          Write-Host "Bandwidth utilized:`t $result %"
          $totalBandwidth = $totalBandwidth + $result
          $count++
