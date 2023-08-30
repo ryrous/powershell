@@ -3,7 +3,6 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Write-Output "PSGallery is Trusted"
 Write-Output "Installing Modules.."
 Install-Module -Name 7Zip4Powershell -Confirm:$false
-Install-Module -Name ActiveDirectory -Confirm:$false
 Install-Module -Name ActiveDirectoryDsc -Confirm:$false
 Install-Module -Name AWSPowerShell -Confirm:$false
 Install-Module -Name AWS.Tools.Common -Confirm:$false
