@@ -38,12 +38,12 @@ choco install intel-dsa
 choco install intel-graphics-driver
 
 # Java
-choco install jre8
+choco install jdk20
 
 # Microsoft
+choco install dotnet
 choco install microsoft-teams
 choco install microsoft-windows-terminal
-choco install netfx-4.8.1
 choco install nugetpackagemanager
 choco install office365business
 choco install onedrive
