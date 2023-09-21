@@ -34,7 +34,7 @@ License: BSD 3-Clause
     $Certificate.Subject = $DN
     $Certificate.Issuer = $Certificate.Subject
     $Certificate.NotBefore = [DateTime]::Now.AddDays(-1)
-    $Certificate.NotAfter = $Certificate.NotBefore.AddDays(90)
+    $Certificate.NotAfter = $Certificate.NotBefore.AddDays(365) # 1 year cert
     $Certificate.X509Extensions.Add($EkuExtension)
     $Certificate.HashAlgorithm = $HashAlg
     $Certificate.Encode()
