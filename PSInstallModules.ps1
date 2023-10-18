@@ -15,6 +15,7 @@ Install-Module -Name DellBIOSProvider -Scope AllUsers -Confirm:$false
 Install-Module -Name ExchangeOnlineManagement -Scope AllUsers -Confirm:$false
 Install-Module -Name IISAdministration -Scope AllUsers -Confirm:$false
 Install-Module -Name Microsoft.Graph -Scope AllUsers -Confirm:$false
+Install-Module -Name Microsoft.Online.SharePoint.PowerShell -Scope AllUsers -Confirm:$false
 Install-Module -Name MSOnline -Scope AllUsers -Confirm:$false
 Install-Module -Name NetworkingDsc -Scope AllUsers -Confirm:$false
 Install-Module -Name NuGet -Scope AllUsers -Confirm:$false
