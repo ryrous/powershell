@@ -1,2 +1,2 @@
 ### Connect to Sharepoint Online ###
-Connect-SPOservice -url https://domain.sharepoint.com -credential admin@domain.com
+Connect-SPOservice -Url https://domain.sharepoint.com -Credential admin@domain.com
