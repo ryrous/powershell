@@ -20,6 +20,7 @@ Install-Module -Name MSOnline -Scope AllUsers -Confirm:$false
 Install-Module -Name NetworkingDsc -Scope AllUsers -Confirm:$false
 Install-Module -Name NuGet -Scope AllUsers -Confirm:$false
 Install-Module -Name PackageManagement -Scope AllUsers -Confirm:$false
+Install-Module -Name PnP.PowerShell -Scope AllUsers -Confirm:$false
 Install-Module -Name PowerShellGet -Scope AllUsers -Force
 Install-Module -Name PSScriptAnalyzer -Scope AllUsers -Confirm:$false
 Install-Module -Name SqlServerDsc -Scope AllUsers -Confirm:$false
