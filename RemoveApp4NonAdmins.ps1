@@ -9,7 +9,7 @@ foreach ($User in $Users) {
     if ($Admins -Contains $User) {
         Write-Host "$User is NOT a local administrator" -ForegroundColor Green
         # Remove the app
-        Get-AppXPackage -Name $App | Remove-AppxPackage
+        Get-AppXPackage -User $User -Name $App | Remove-AppxPackage
     } 
     else {
         Write-Host "$User is a local administrator" -ForegroundColor Red
