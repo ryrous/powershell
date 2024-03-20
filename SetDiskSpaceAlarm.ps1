@@ -1,5 +1,7 @@
 # Replace "smtp.domain.com" with your mail server name
-$smtp = New-Object Net.Mail.SmtpClient("smtp.domain.com")
+Add-Type -AssemblyName System.Net.Mail
+
+$smtp = New-Object System.Net.Mail.SmtpClient("smtp.domain.com")
 
 # Set thresholds (in gigabytes) for C: drive and for the remaining drives
 $driveCthreshold = 10
@@ -18,12 +20,12 @@ $Results = Get-WmiObject -Class Win32_Volume -Filter "SystemVolume='False' AND D
 }
 
 ForEach ($Result In $Results){
-    $drive = $Result.DriveLetter
-    $space = $Result.FreeSpace
-    $thresh = if($drive -eq 'C:'){$driveCthreshold} else {$threshold}
+	$drive = $Result.DriveLetter
+	$space = $Result.FreeSpace
+	$thresh = if($drive -eq 'C:'){$driveCthreshold} else {$threshold}
 
-    # Send e-mail if the free space is less than threshold parameter 
-    $smtp.Send(
+	# Send e-mail if the free space is less than threshold parameter 
+	$smtp.Send(
 	$emailFrom, 
 	$emailTo, 
 	# E-mail subject
