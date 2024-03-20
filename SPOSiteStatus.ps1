@@ -1,12 +1,12 @@
 ﻿#Change your tenant admin account below
 $username = "admin@domain.com"
 $password = read-host "password" -AsSecureString 
-#$password = convertto-securestring "YourPassword" -asplaintext -force
 $cred = New-Object -TypeName System.Management.Automation.PSCredential -argumentlist $userName, $password
 #
 #Must be SharePoint Admin URL
 $siteUrl = "https://domain.sharepoint.com"
 #
+Import-Module -Name Microsoft.Online.SharePoint.PowerShell -ErrorAction Stop
 Connect-SPOService -Url $siteUrl -Credential $cred
 #
 Write-Host "1. List all NoAccess Site Collections" -ForegroundColor Green
