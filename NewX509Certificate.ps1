@@ -1,3 +1,5 @@
+using namespace System.Security.Cryptography.X509Certificates
+
 function New-X509Certificate { 
     Param (
         [Parameter(Position = 0, Mandatory = $true)]

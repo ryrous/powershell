@@ -1,3 +1,4 @@
+Import-Module -Name PKI
 $define = @{
     FriendlyName = 'PowerShell Automation'
     NotBefore = Get-Date
