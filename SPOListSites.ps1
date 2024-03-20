@@ -31,7 +31,7 @@ foreach ($site in $sites)
 {
     Write-Host 'Site collection:' $site.Url     
     $AllWebs = Get-SPOWebs -Url $site.Url -Credential $SPOCredentials
-    $AllWebs | %{ Write-Host $_.Title }   
+    $AllWebs | ForEach-Object { Write-Host $_.Title }   
     Write-Host '-----------------------------' 
 } 
 #
