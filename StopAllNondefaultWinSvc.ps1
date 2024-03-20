@@ -1,5 +1,7 @@
-$NonDefaultServices = Get-WmiObject Win32_Service | Where-Object { 
-    $_.Caption -notmatch "Windows" -and 
+Import-Module -Name Microsoft.PowerShell.Management
+
+$NonDefaultServices = Get-Service | Where-Object { 
+    $_.DisplayName -notmatch "Windows" -and 
     $_.PathName -notmatch "Windows" -and
     $_.PathName -notmatch "policyhost.exe" -and 
     $_.Name -ne "LSM" -and 
