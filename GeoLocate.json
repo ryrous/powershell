@@ -1,0 +1,26 @@
+{
+    "cellTowers": [
+        {
+            "cellId": 111111111,
+            "newRadioCellId": 111111111,
+            "homeMobileCountryCode": 311,
+            "homeMobileNetworkCode": 480,
+            "locationareaCode": 11111,
+            "radioType": "lte",
+            "carrier": "Verizon"
+        }
+    ],
+    "wifiAccessPoints": [
+        {
+            "macAddress": "11:11:11:11:11:11",
+            "signalStrength": -35,
+            "age": 0
+        },
+        {
+            "macAddress": "11:11:11:11:11:11",
+            "signalStrength": -35,
+            "age": 0
+        }
+    ],
+    "considerIp": "true"
+}
