@@ -2,4 +2,4 @@ Param(
     [Parameter(Mandatory=$true)]
     [Datetime]$LastWrite
 )
-Get-ChildItem $path | Where-Object -FileterScript {($_.LastWriteTime -gt $LastWrite)}
+Get-ChildItem -Path $path | Where-Object -FilterScript {($_.LastWriteTime -gt $LastWrite)}
