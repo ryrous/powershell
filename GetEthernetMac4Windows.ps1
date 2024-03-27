@@ -1,3 +1,3 @@
 ### Display MAC Addresses ###
-Ipconfig /all | Select-String Physical
+Get-NetAdapter | Where-Object {$_.Name -like "Ethernet"} | Select-Object -ExpandProperty MacAddress
 Read-Host -Prompt "Press Enter to exit"
