@@ -1,1 +1,2 @@
-Install-WindowsFeature -Name <feature_name> -computerName <computer_name> -Restart
+# Istall Windows Feature on remote computer
+Install-WindowsFeature -Name "feature_name" -computerName "computer_name" -Restart
