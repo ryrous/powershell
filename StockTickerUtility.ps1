@@ -1,4 +1,4 @@
-<# Description: This script will get the first and last open price of a stock and the average open price for the last 120 days.
+<# Description: This script uses Polygon API to get basic stock info for the last 120 days.
 
 resultsarray:
 v*number
@@ -41,7 +41,7 @@ function Get-StockInfo120 {
     # GENERAL VARIABLES
     $fromDate = (Get-Date).AddDays(-120).ToString('yyyy-MM-dd') #'2024-01-01'
     $currentDate = (Get-Date).ToString('yyyy-MM-dd') #'2024-05-01'
-    $apiKey = 'apiKey=YOUR_API_KEY'
+    $apiKey = 'apiKey=YOUR_POLYGON_API_KEY'
     # Enter stock ticker
     Write-Host "Let's see how the past 120 days have been for..." -ForegroundColor DarkGreen -BackgroundColor Black
     $stockTicker = Read-Host "Enter the desired stock ticker: "
