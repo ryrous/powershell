@@ -1,7 +1,7 @@
 # Cross-platform Temp Cleanup Script
 # Requires PowerShell 6+ (Core)
 
-function Ensure-Elevated {
+function Test-Elevated {
     if ($IsWindows) {
         # Check if the current process is running as Administrator.
         $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
@@ -38,7 +38,7 @@ function Ensure-Elevated {
 }
 
 # Call the function to ensure we have elevated privileges.
-Ensure-Elevated
+Test-Elevated
 
 Write-Host "Script is running with elevated privileges."
 
