@@ -169,9 +169,9 @@ function Get-DefaultGateway {
         }
     } elseif ($platform -eq "macOS") {
         try {
-            # On macOS, the default route is shown in netstat output.
-            $gwLine = ifconfig | Select-String -Pattern "default" | ForEach-Object { $_.ToString().Trim() }
-            if ($gwLine -match 'default\s+([\d\.]+)') {
+            # On macOS, use netstat to retrieve the default gateway.
+            $gwLine = netstat -rn | Select-String -Pattern '^default' | Select-Object -First 1
+            if ($gwLine -match '^default\s+([\d\.]+)') {
                 $gw = $Matches[1]
             } else {
                 $gw = "Unavailable"
@@ -213,7 +213,7 @@ function Get-ActiveHosts {
     1..254 | ForEach-Object {
         $target = "$baseIP.$_"
         if ($target -ne $localIP) {
-            if (Test-Connection -Quiet -Count 1 -ComputerName $target -TimeoutSeconds 1) {
+            if (Test-Connection -Quiet -Count 1 -ComputerName $target -TimeoutSeconds 3) {
                 $activeCount++
             }
         }
