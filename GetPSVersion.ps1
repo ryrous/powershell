@@ -1,3 +1,3 @@
 ### Display PowerShell Version ###
-$Host
+$PSVersionTable.PSVersion
 Read-Host -Prompt "Press Enter to exit"
