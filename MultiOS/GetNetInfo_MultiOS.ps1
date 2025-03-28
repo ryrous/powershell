@@ -231,4 +231,4 @@ $result = [PSCustomObject]@{
     "Active Devices on Network"  = $deviceCount
 }
 
-$result | Format-Table -AutoSize
+$result #| Format-Table -AutoSize
