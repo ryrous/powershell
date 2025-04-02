@@ -1,1 +1,0 @@
-Get-AppXPackage -allusers | ForEach-Object {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
