@@ -51,7 +51,6 @@ Write-Host "-------------------------------------"
 
 # Initialize variables
 $lastBootTime = $null
-$osType = "Unknown"
 
 # --- OS Detection and Last Boot Time Retrieval ---
 try {
