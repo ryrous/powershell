@@ -51,12 +51,10 @@ Write-Host "-------------------------------------"
 
 # Initialize variables
 $lastBootTime = $null
-$osType = "Unknown"
 
 # --- OS Detection and Last Boot Time Retrieval ---
 try {
     if ($IsWindows) {
-        $osType = "Windows"
         Write-Host "Detected Operating System: Windows"
         # Get last boot time using CIM (more modern than WMI)
         $lastBootTime = (Get-CimInstance -ClassName Win32_OperatingSystem).LastBootUpTime
@@ -66,7 +64,6 @@ try {
         Write-Host "Last Boot Time (Windows): $lastBootTime"
 
     } elseif ($IsLinux) {
-        $osType = "Linux"
         Write-Host "Detected Operating System: Linux"
         # Get last boot time using 'uptime -s' command
         # The output format is usually 'YYYY-MM-DD HH:MM:SS'
@@ -84,7 +81,6 @@ try {
 
 
     } elseif ($IsMacOS) {
-        $osType = "macOS"
         Write-Host "Detected Operating System: macOS"
         # Get last boot time using 'sysctl -n kern.boottime'
         # Output format like: { sec = 1678886400, usec = 0 } Mon Mar 15 10:00:00 2023
