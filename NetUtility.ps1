@@ -16,7 +16,7 @@
 # 7. Send messages (Client):
 #    Send-Msg -Message "Hello from client 1" -Verbose
 #    Send-Msg -Message "Another message" -Port 8989 -Server localhost
-#    Send-Msg -Message "Test to other IP" -Server 192.168.1.100 -Port 9999 # (If listener is on that IP/port)
+#    Send-Msg -Message "Test to other IP" -Server 192.168.0.100 -Port 9999 # (If listener is on that IP/port)
 #    Send-Msg # Sends the default [char]4 message
 
 # --- Example Auto-Run (Optional - uncomment to run listener immediately) ---
