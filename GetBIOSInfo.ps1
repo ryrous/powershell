@@ -1,3 +1,3 @@
 ### Display BIOS Information ###
-Get-WMIObject Win32_BIOS | Select-Object Manufacturer, SMBIOSBIOSVersion, ReleaseDate, SerialNumber | Format-Table
+Get-CimInstance -ClassName Win32_BIOS | Select-Object Manufacturer, SMBIOSBIOSVersion, ReleaseDate, SerialNumber | Format-Table -AutoSize
 Read-Host -Prompt "Press Enter to exit"

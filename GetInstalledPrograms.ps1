@@ -1,5 +1,16 @@
 # Get Installed Software
-Get-WmiObject -Class Win32_Product | Select-Object -Property Vendor,Name,Version,InstallDate | Sort-Object Vendor | Format-Table -AutoSize
+# Define the registry paths
+$paths = @(
+    'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+    'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' # For 32-bit apps on 64-bit OS
+)
 
-# Get Installed Apps
-Get-AppxPackage | Select-Object Name, Version
+# Query the registry, filter out entries without display names, select desired properties, and format
+Get-ItemProperty $paths -ErrorAction SilentlyContinue |
+    Where-Object { $_.DisplayName -ne $null -and $_.DisplayName -ne '' } |
+    Select-Object @{Name='Vendor'; Expression={$_.Publisher}},
+                  @{Name='Name'; Expression={$_.DisplayName}},
+                  @{Name='Version'; Expression={$_.DisplayVersion}},
+                  InstallDate |
+    Sort-Object Vendor, Name |
+    Format-Table -AutoSize
